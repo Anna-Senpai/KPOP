@@ -1,0 +1,22 @@
+<input placeholder="Type the city" type="text" [value]="input" (keyup)="change($event)" />
+<button mat-raised-button (click)="onSave()">Search</button>
+
+<ul>
+  <li *ngFor="let item of data">
+   <strong> {{ item.name }}  </strong> 
+    <br /> 
+    <button mat-raised-button (click)="openDialog(item,theBoundCallback)">Popup</button>
+    <button mat-raised-button (click)="onFavourite(item)">Fav</button> <br />
+    Температура: {{ item.the_temp }} <br />Опади: {{ item.humidity }}<br />
+    Швидкість вітру: {{ item.wind_speed }}
+  </li>
+</ul>
+<br />
+
+
+<br />
+<br />
+<br />
+<app-child-component [someInput]="favourites"></app-child-component>
+
+<router-outlet></router-outlet>
